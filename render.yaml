@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: deed-ocr-api
+    env: python
+    plan: free
+    buildCommand: |
+      apt-get update
+      apt-get install -y tesseract-ocr tesseract-ocr-ara poppler-utils
+      pip install -r requirements.txt
+    startCommand: python app.py
+    envVars: []
